@@ -1,12 +1,12 @@
 from fastapi import FastAPI
 
+from app.api import health
+
 app = FastAPI()
+
+
+app.include_router(health.router)
 
 @app.get("/")
 def root():
     return {"message": "Welcome to PHANTOM API"}
-
-
-@app.get("/health", tags=["health"], summary="Check application health")
-def health_check():
-    return {"status": "ok", "service": "phantom"}
