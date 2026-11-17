@@ -9,5 +9,3 @@ router = APIRouter(
 @router.get("", summary="Check application health")
 def health_check():
     return {"status": "ok", "service": "phantom"}
-
-
